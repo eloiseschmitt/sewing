@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des couturiers</title>
+    <style>
+        table {
+            width: 50%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        form {
+            width: 50%;
+            margin: 20px auto;
+            text-align: center;
+        }
+        input[type="text"] {
+            width: 70%;
+            padding: 10px;
+            margin-right: 10px;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Liste des couturiers</h1>
+
+    <!-- Tableau des résultats -->
+    <table aria-describedby="couturiers-list">
+        <thead>
+            <tr>
+                <th>Siren</th>
+                <th>Activité principale - Unité légale</th>
+                <th>Activité principale - Établissement</th>
+                <th>Dénomination</th>
+                <th>Siège</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if couturiers %}
+                {% for couturier in couturiers %}
+                <tr>
+                    <td>{{ couturier.siren }}</td>
+                    <td>{{ couturier.main_activity }}</td>
+                    <td>{{ couturier.activite_principale }}</td>
+                    <td>{{ couturier.denomination }}</td>
+                    <td>{{ couturier.siege }}</td>
+                </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="3" style="text-align: center;">Aucun résultat trouvé</td>
+                </tr>
+            {% endif %}
+        </tbody>
+    </table>
+</body>
+</html>
