@@ -6,7 +6,7 @@ import requests
 
 load_dotenv()
 
-API_KEY = os.getenv("API_KEY")
+API_KEY = os.getenv("GOOGLE_MAP_API_KEY")
 
 
 def geocoder_google(address):
